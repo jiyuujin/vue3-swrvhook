@@ -1,4 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import { httpSymbol, useHttpConfig } from './composables/fetch'
+
+const app = createApp(App)
+
+app.provide(httpSymbol, useHttpConfig())
+
+app.mount('#app')
